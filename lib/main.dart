@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'meme.dart';
+import 'Edit.dart';
 
 void main() => runApp(Home());
 
@@ -57,12 +58,18 @@ class _homeState extends State<Home> {
                       itemCount: list.length,
                       itemBuilder: (context, i) {
                         return Container(
-                          margin: EdgeInsets.only(top: 10),
-                            child: Image.network(
-                          list[i].url,
-                          height: 200,
-                          width: 100,
-                        ));
+                            margin: EdgeInsets.only(top: 10),
+                            child: GestureDetector(
+                              child: Image.network(
+                                  list[i].url,
+                                  height: 200, width: 100),
+                              onDoubleTap: (){
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => new Edit(list[i].id)));
+                              },
+                            ));
                       }))
             ],
           )),
