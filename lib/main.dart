@@ -16,7 +16,7 @@ class Home extends StatefulWidget {
 }
 
 class _homeState extends State<Home> {
-  List<Meme> list;
+  List<Meme> list=[];
 
   Future getData() async {
     http.Response response =
