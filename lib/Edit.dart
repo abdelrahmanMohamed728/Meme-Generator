@@ -27,11 +27,7 @@ class _EditState extends State<Edit> {
     var response = await http
         .post(Uri.encodeFull('https://api.imgflip.com/caption_image'),
         body: json.encode({
-          "template_id": id,
-          "username": "abdomohamed",
-          "password": "thegame728",
-          "text0": 'a',
-          "text1":'1'
+
 
         }), headers: {"content-type": "application/json",
           "accept": "application/json",});
