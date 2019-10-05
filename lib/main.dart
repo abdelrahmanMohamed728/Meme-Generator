@@ -21,9 +21,8 @@ class _homeState extends State<Home> {
   Future getData() async {
     http.Response response =
         await http.get('https://api.imgflip.com/get_memes');
-    var map = json.decode(response.body);
-
     setState(() {
+      var map = json.decode(response.body);
       list =
           (map['data']['memes'] as List).map((p) => Meme.fromJson(p)).toList();
     });
@@ -42,7 +41,7 @@ class _homeState extends State<Home> {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.green,
       ),
       home: Scaffold(
           appBar: AppBar(
@@ -63,7 +62,7 @@ class _homeState extends State<Home> {
                               child: Image.network(
                                   list[i].url,
                                   height: 200, width: 100),
-                              onDoubleTap: (){
+                              onTap: (){
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
